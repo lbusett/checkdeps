@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# checkdeps
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of checkdeps is to allow easily checking the versions of dependencies of a given package 
+currently installed on the user's system, and eventually compare them with "reference" 
+dependencies stored in a RData file. 
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("lbusett/checkdeps")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(checkdeps)
+check_pkg_deps("ggplot2")
+## basic example code
+```
+
