@@ -34,8 +34,11 @@ devtools::install_github("lbusett/checkdeps")
 
 ```{r example}
 library(checkdeps)
+
+check_pkg_deps("MASS")
+
 check_pkg_deps("ggplot2")
-## basic example code
+
 ```
 
 ## Example: saving currently installed versions of dependencies of an installed package:
@@ -43,8 +46,7 @@ check_pkg_deps("ggplot2")
 ```{r example2}
 library(checkdeps)
 outfile <- tempfile(fileext = ".RData")
-save_pkg_deps("ggplot2", outfile)
-## basic example code
+save_pkg_deps("MASS", outfile)
 ```
 
 ## Example: comparing currently installed versions of dependencies with those saved in a file:
@@ -52,6 +54,6 @@ save_pkg_deps("ggplot2", outfile)
 ```{r example3}
 library(checkdeps)
 prevfile <- outfile
-compare_pkg_deps("ggplot2", prevfile)
+compare_pkg_deps("MASS", prevfile)
 ## basic example code
 ```

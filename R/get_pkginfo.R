@@ -66,7 +66,7 @@ get_pkginfo <- function(pkg) {
         data.frame(Name    = pkg,
                    Version = NA,
                    Repo    = NA,
-                   date    = NA,
+                   date    = as.Date(NA),
                    stringsAsFactors = FALSE)
     }
 }

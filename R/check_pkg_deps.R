@@ -45,14 +45,14 @@ check_pkg_deps <- function(pkg) {
     info_imports <-  lapply(imports, FUN = function(x) {info <- get_pkginfo(x)})
     info_imports <- data.table::rbindlist(info_imports)
     info_imports <- info_imports[order(-date)]
-    info_imports$type <- "Depends"
+    info_imports$type <- "Imports"
     out_list[[index]] <- info_imports
     index <- index +1
   }
 
   if (length(imports != 0)) {
     suggests <- extract_name(description$Suggests)
-    info_suggests <-  lapply(imports, FUN = function(x) {info <- get_pkginfo(x)})
+    info_suggests <-  lapply(suggests, FUN = function(x) {info <- get_pkginfo(x)})
     info_suggests <- data.table::rbindlist(info_suggests)
     info_suggests <- info_suggests[order(-date)]
     info_suggests$type <- "Suggests"
