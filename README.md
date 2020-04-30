@@ -22,18 +22,16 @@ You can install the development version from
 devtools::install_github("lbusett/checkdeps")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Example: checking currently installed versions of dependencies of an installed package:
 
 ``` r
 library(checkdeps)
 check_pkg_deps("ggplot2")
 #>         Name  Version Repo       date
-#> 1      withr    2.2.0 CRAN 2020-04-20
-#> 2    isoband    0.2.1 CRAN 2020-04-12
-#> 3       glue    1.4.0 CRAN 2020-04-03
-#> 4     tibble    3.0.0 CRAN 2020-03-30
+#> 1     tibble    3.0.1 CRAN 2020-04-20
+#> 2      withr    2.2.0 CRAN 2020-04-20
+#> 3    isoband    0.2.1 CRAN 2020-04-12
+#> 4       glue    1.4.0 CRAN 2020-04-03
 #> 5      rlang    0.4.5 CRAN 2020-03-01
 #> 6  grDevices    3.6.3 base 2020-02-29
 #> 7       grid    3.6.3 base 2020-02-29
@@ -43,5 +41,27 @@ check_pkg_deps("ggplot2")
 #> 11    scales    1.1.0 CRAN 2019-11-18
 #> 12      mgcv   1.8-31 CRAN 2019-11-09
 #> 13    gtable    0.3.0 CRAN 2019-03-25
+## basic example code
+```
+
+## Example: saving currently installed versions of dependencies of an installed package:
+
+``` r
+library(checkdeps)
+outfile <- tempfile(fileext = ".RData")
+save_pkg_deps("ggplot2", outfile)
+#> Dependencies status saved to file: D:/RTemp\Rtmpq6TZxh\file3d8879d0780f.RData
+## basic example code
+```
+
+## Example: comparing currently installed versions of dependencies with those saved in a file:
+
+``` r
+library(checkdeps)
+prevfile <- outfile
+compare_pkg_deps("ggplot2", prevfile)
+#> = ===================================================================== =
+#> All Dependencies are equal!
+#> = ===================================================================== =
 ## basic example code
 ```

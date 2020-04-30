@@ -48,7 +48,7 @@ get_pkginfo <- function(pkg) {
         }
 
         if (!any(is.na(c(username, ref, sha)))) {
-            repo <- paste0(username, "/", ref, "@", sha)
+            repo <- paste0(username, "/", pkg, "@", sha)
         } else {
             repo <- description$Repository
             if (is.null(repo)) {

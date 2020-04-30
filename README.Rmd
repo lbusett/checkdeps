@@ -30,9 +30,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("lbusett/checkdeps")
 ```
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Example: checking currently installed versions of dependencies of an installed package:
 
 ```{r example}
 library(checkdeps)
@@ -40,3 +38,20 @@ check_pkg_deps("ggplot2")
 ## basic example code
 ```
 
+## Example: saving currently installed versions of dependencies of an installed package:
+
+```{r example2}
+library(checkdeps)
+outfile <- tempfile(fileext = ".RData")
+save_pkg_deps("ggplot2", outfile)
+## basic example code
+```
+
+## Example: comparing currently installed versions of dependencies with those saved in a file:
+
+```{r example3}
+library(checkdeps)
+prevfile <- outfile
+compare_pkg_deps("ggplot2", prevfile)
+## basic example code
+```
